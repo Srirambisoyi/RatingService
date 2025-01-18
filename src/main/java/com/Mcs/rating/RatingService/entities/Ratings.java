@@ -3,7 +3,7 @@ package com.Mcs.rating.RatingService.entities;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("ratings")
-public class Rating {
+public class Ratings {
     private String ratingid;
     private String userid;
     private String hotelid;

@@ -1,6 +1,6 @@
 package com.Mcs.rating.RatingService.controller;
 
-import com.Mcs.rating.RatingService.entities.Rating;
+import com.Mcs.rating.RatingService.entities.Ratings;
 import com.Mcs.rating.RatingService.service.Ratingservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,27 +17,29 @@ public class RatingController {
 
     //create rating
     @PostMapping
-    public ResponseEntity<Rating> createRating(@RequestBody Rating rating)
+    public ResponseEntity<Ratings> createRating(@RequestBody Ratings rating)
     {
-        Rating rating1=ratingservice.createRating(rating);
+        Ratings rating1=ratingservice.createRating(rating);
         return ResponseEntity.status(HttpStatus.CREATED).body(rating1);
     }
+
+    //get speicified user rating using rating id
     @GetMapping("/user/{userid}")
-    public ResponseEntity<List<Rating>> getUserRating(@PathVariable String userid)
+    public ResponseEntity<List<Ratings>> getUserRating(@PathVariable String userid)
     {
-       List<Rating> userrating=ratingservice.getRatingByUserId(userid);
+       List<Ratings> userrating=ratingservice.getRatingByUserId(userid);
        return ResponseEntity.ok(userrating);
     }
     @GetMapping("/api/{hotelid}")
-    public ResponseEntity<List<Rating>> getHotelRating(String hotelid)
+    public ResponseEntity<List<Ratings>> getHotelRating(String hotelid)
     {
-       List<Rating> ratings=ratingservice.getRatingByHotelId(hotelid);
+       List<Ratings> ratings=ratingservice.getRatingByHotelId(hotelid);
        return ResponseEntity.ok(ratings);
     }
     @GetMapping
-    public ResponseEntity<List<Rating>> getAllRating()
+    public ResponseEntity<List<Ratings>> getAllRating()
     {
-       List<Rating> ratings=ratingservice.getAllRating();
+       List<Ratings> ratings=ratingservice.getAllRating();
        return ResponseEntity.ok(ratings);
     }
 }

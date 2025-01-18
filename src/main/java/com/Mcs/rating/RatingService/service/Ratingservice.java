@@ -1,19 +1,19 @@
 package com.Mcs.rating.RatingService.service;
 
-import com.Mcs.rating.RatingService.entities.Rating;
+import com.Mcs.rating.RatingService.entities.Ratings;
 
 import java.util.List;
 
 public interface Ratingservice {
 
     //create rating
-Rating createRating(Rating rating);
+Ratings createRating(Ratings rating);
 
     //get all rating
-List<Rating> getAllRating();
+List<Ratings> getAllRating();
     //get all rating on userid
-    List<Rating> getRatingByUserId(String userid);
+    List<Ratings> getRatingByUserId(String userid);
 
     //get all rating on hotelid
-    List<Rating> getRatingByHotelId(String hotelid);
+    List<Ratings> getRatingByHotelId(String hotelid);
 }
