@@ -1,6 +1,6 @@
 package com.Mcs.rating.RatingService.service.impl;
 
-import com.Mcs.rating.RatingService.entities.Rating;
+import com.Mcs.rating.RatingService.entities.Ratings;
 import com.Mcs.rating.RatingService.repository.RatingRepo;
 import com.Mcs.rating.RatingService.service.Ratingservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,24 +15,24 @@ public class RatingServiceImpl implements Ratingservice {
     private RatingRepo ratingRepo;
 
     @Override
-    public Rating createRating(Rating rating) {
+    public Ratings createRating(Ratings rating) {
        String id=UUID.randomUUID().toString();
        rating.setRatingid(id);
         return ratingRepo.save(rating);
     }
 
     @Override
-    public List<Rating> getAllRating() {
+    public List<Ratings> getAllRating() {
         return ratingRepo.findAll();
     }
 
     @Override
-    public List<Rating> getRatingByUserId(String userid) {
+    public List<Ratings> getRatingByUserId(String userid) {
         return ratingRepo.findByUserid(userid);
     }
 
     @Override
-    public List<Rating> getRatingByHotelId(String hotelid) {
+    public List<Ratings> getRatingByHotelId(String hotelid) {
         return ratingRepo.findByHotelid(hotelid);
     }
 }
