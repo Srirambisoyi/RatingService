@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: RatingService
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/microservice
+  config:
+    import: configserver:http://localhost:5050 # Cloud Config Server URL
+
+server:
+  port: 7071
